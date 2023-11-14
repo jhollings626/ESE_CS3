@@ -5,7 +5,7 @@ pos2 = [10,0,0];
 
 angles = linspace(-pi/20,pi/20,N); %create vector storing the angles
 
-d = 0.005; %propagation of each ray
+d = 0.2; %propagation of each ray
 
 M = [1 d 0 0;
      0 1 0 0;
