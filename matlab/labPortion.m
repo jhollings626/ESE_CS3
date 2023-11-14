@@ -30,4 +30,4 @@ for i = 1:N
 end
 
 ray_z = [zeros(1,size(raysIn1,2)); d*ones(1,size(raysIn1,2))];
-plot(ray_z, [raysIn1(1,:); raysOut1(1,:)]);
+plot(ray_z, [raysIn1(1,:); raysOut1(1,:)],'Color','#DE4929');
