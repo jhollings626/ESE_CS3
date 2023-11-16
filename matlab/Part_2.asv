@@ -18,17 +18,16 @@ rays_y = rays(3, :); %load rays y positions into a row vector
 
 figure;
 imshow(image);
-title('Image of Rays After Refining Sensor Width and Pixel Count')
+title('')
 
 propagation_distances = [0.1, 0.2, 0.4]; %create different propagation distances to simulate
 
 for d = propagation_distances
-    raysXProp = rays_x + rays(2, :) * d; % Propagate in xz plane
-    raysYProp = rays_y + rays(4, :) * d; % Propagate in yz plane
+    raysXProp = rays_x + rays(2, :) * d; %propagate in xz plane
+    raysYProp = rays_y + rays(4, :) * d; %propagate in yz plane
     [image, ~, ~] = rays2img(raysXProp, raysYProp, sensor_width, num_pixels);
     figure;
     imshow(image); 
-    title(['Propagation Distance of ', num2str(d), 'm']);
 end
 
 %% Part 3 - Create an Image

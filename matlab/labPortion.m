@@ -72,7 +72,7 @@ for i = 1:N
         % Update ray's direction based on its position and the lens's focal length
         raysAfterLens1(:,i) = lensMatrix * [raysOut1(1,i); raysOut1(2,i); raysOut1(3,i); 1];
         % The y-component remains the same as rays are only propagating in the xz-plane
-        raysAfterLens1(3,i) = raysOut1(3,i);
+        raysAfterLens1(3,i) = raysOut1(3,i); %yz plane angle is unchanged
     else
         raysAfterLens1(:,i) = [NaN; NaN; NaN; NaN]; %for rays that go past the lens, they don't get more values...
     end
@@ -117,10 +117,10 @@ plot(ray_z, [raysIn2(1,:); raysOut2(1,:)], 'Color', '#56B4E9'); %rays from Point
 
 %plot rays that passed through the lens
 for i = 1:N
-    if ~isnan(raysAfterLens1(1,i)) %if post-lens coordinates, exist plot them (darker than original rays though)
+    if ~isnan(raysAfterLens1(1,i)) %if post-lens coordinates exist, plot them (darker than original rays though)
         plot([lensPosition, lensPosition + d2], [raysOut1(1,i), raysAfterLens1(1,i)], 'Color', '#B84329');
     end
-    if ~isnan(raysAfterLens2(1,i)) %if post-lens coordinates, exist plot them (darker than originals again)
+    if ~isnan(raysAfterLens2(1,i)) %if post-lens coordinates exist, plot them (darker than originals again)
         plot([lensPosition, lensPosition + d2], [raysOut2(1,i), raysAfterLens2(1,i)], 'Color', ' #56b4e9');
     end
 end
