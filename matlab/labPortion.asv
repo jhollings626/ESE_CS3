@@ -57,15 +57,17 @@ legend('Ray 1', 'Ray 2');
 
 %% Ray Tracing Through a Finite-Sized Lens - Pt. 2
 
+% Parameters
 f = 0.15; % focal length in meters (negative for a converging lens)
 lensRadius = 0.02; % lens radius in meters
 lensPosition = 0.2; % position of lens along the z-axis in meters
 
-lensMatrix = [1 0 0 0; %build the matrix for passing through the lens (basically just adjust the slopes of the rays that pass through)
+
+% Define the lens matrix
+lensMatrix = [1 0 0 0;
             -1/f 1 0 0;
               0 0 1 0;
               0 0 -1/f 1];
-
 % Update the rays' positions and directions after passing through the lens
 for i = 1:N
     if abs(raysOut1(1,i)) <= lensRadius %rays outside of the lens radius don't need to continue
